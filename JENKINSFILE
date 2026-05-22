@@ -1,0 +1,17 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Clone') {
+            steps {
+               git  'https://github.com/csai-kaustubh-vashishtha/sample_java.git'
+            }
+        }
+        stage('Execute') {
+            steps {
+              bat '''javac Test.java
+                    java Test.java'''
+            }
+        }
+    }
+}
